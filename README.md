@@ -6,6 +6,8 @@ LuCI 管理界面 for SmartDNS。SmartDNS 是一个本地高性能 DNS 服务器
 
 ## 功能特性
 
+<small>
+
 - 本地 DNS 服务器，带速度优化
 - 上游 DNS 服务器配置（UDP、TCP、TLS、HTTPS）
 - 备用 DNS 服务器
@@ -18,16 +20,24 @@ LuCI 管理界面 for SmartDNS。SmartDNS 是一个本地高性能 DNS 服务器
 - DNSCrypt 支持
 - 自动更新域名列表
 
+</small>
+
 ## 依赖项
+
+<small>
 
 - `smartdns`
 - `luci-compat`
+
+</small>
 
 ## 软件包路径说明
 
 这是原始 `kenzok8/openwrt-packages` 软件包的标准化修复版本，遵循标准 OpenWrt LuCI 应用布局。
 
 ## 修复的问题
+
+<small>
 
 - 控制器：`nixio.fs.access` 调用时缺少本地 `require "nixio.fs"`（缺少 `local fs` 声明）
 - 控制器：`luci.sys.call` 和 `luci.http` 使用时缺少本地 requires
@@ -41,6 +51,8 @@ LuCI 管理界面 for SmartDNS。SmartDNS 是一个本地高性能 DNS 服务器
 - upstream.lua：第 19 行语法错误（`%{` 替换为 `string.format`）
 - uci-defaults 脚本：缺少 `IPKG_INSTROOT` 检查已添加
 - po/zh-cn 目录重命名为 po/zh_Hans
+
+</small>
 
 ## 原始作者
 
