@@ -1,47 +1,47 @@
 # luci-app-smartdns
 
-## Package Description
+## 软件包描述
 
-LuCI support for SmartDNS. SmartDNS is a local high-performance DNS server that supports finding fastest IP, ad filtering, and avoiding DNS poisoning.
+LuCI 管理界面 for SmartDNS。SmartDNS 是一个本地高性能 DNS 服务器，支持 DNS 加速、广告过滤和防止 DNS 污染。
 
-## Features
+## 功能特性
 
-- Local DNS server with speed optimization
-- Upstream DNS server configuration (UDP, TCP, TLS, HTTPS)
-- Second DNS server for fallback
-- DNS64 server support
-- Proxy server support for upstream queries
-- Domain-based forwarding and blocking
-- IP-based rules and blacklists
-- Cache with persistence
-- Certificate-based DNS (DoT, DoH)
-- DNSCrypt support
-- Auto-update domain lists
+- 本地 DNS 服务器，带速度优化
+- 上游 DNS 服务器配置（UDP、TCP、TLS、HTTPS）
+- 备用 DNS 服务器
+- DNS64 服务器支持
+- 代理服务器支持上游查询
+- 基于域名的转发和拦截
+- 基于 IP 的规则和黑名单
+- 持久化缓存
+- 基于证书的 DNS（DoT、DoH）
+- DNSCrypt 支持
+- 自动更新域名列表
 
-## Dependencies
+## 依赖项
 
 - `smartdns`
 - `luci-compat`
 
-## Normalized Package Path
+## 软件包路径说明
 
-This is a normalized and fixed version of the original `kenzok8/openwrt-packages` package, following standard OpenWrt LuCI app layout.
+这是原始 `kenzok8/openwrt-packages` 软件包的标准化修复版本，遵循标准 OpenWrt LuCI 应用布局。
 
-## Bugs Fixed
+## 修复的问题
 
-- Controller: `nixio.fs.access` called without local `require "nixio.fs"` (missing `local fs` declaration)
-- Controller: `luci.sys.call` and `luci.http` used without local requires
-- Controller: global variable leaks (`e`, `ipv6_server`, `str`)
-- Model: duplicate `require("nixio.fs")` call removed
-- Model: unused `require("luci.http")` and `require("luci.dispatcher")` removed
-- Model: `return m` referencing undefined `m` variable removed
-- Model: unused `local uci` variable kept for `get_config_option` function
-- CBI model: duplicate `require("nixio.fs")` call removed
-- CBI model: unused `require("luci.http")` and `require("luci.dispatcher")` removed
-- upstream.lua: syntax error on line 19 (`%{` replaced with `string.format`)
-- uci-defaults script: missing `IPKG_INSTROOT` check added
-- po/zh-cn directory renamed to po/zh_Hans
+- 控制器：`nixio.fs.access` 调用时缺少本地 `require "nixio.fs"`（缺少 `local fs` 声明）
+- 控制器：`luci.sys.call` 和 `luci.http` 使用时缺少本地 requires
+- 控制器：全局变量泄漏（`e`、`ipv6_server`、`str`）
+- 模型：重复的 `require("nixio.fs")` 调用已移除
+- 模型：未使用的 `require("luci.http")` 和 `require("luci.dispatcher")` 已移除
+- 模型：`return m` 引用未定义的 `m` 变量已移除
+- 模型：未使用的 `local uci` 变量保留用于 `get_config_option` 函数
+- CBI 模型：重复的 `require("nixio.fs")` 调用已移除
+- CBI 模型：未使用的 `require("luci.http")` 和 `require("luci.dispatcher")` 已移除
+- upstream.lua：第 19 行语法错误（`%{` 替换为 `string.format`）
+- uci-defaults 脚本：缺少 `IPKG_INSTROOT` 检查已添加
+- po/zh-cn 目录重命名为 po/zh_Hans
 
-## Original Author
+## 原始作者
 
 Nick Peng (Ruilin Peng) &lt;pymumu@gmail.com&gt;
